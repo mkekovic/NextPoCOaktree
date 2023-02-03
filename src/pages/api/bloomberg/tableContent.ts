@@ -3,7 +3,7 @@ const AthenaExpress = require("athena-express");
 const AWS = require("aws-sdk");
 
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
     console.log('Starting lambda exec')
     const athenaExpressConfig = {
         aws: AWS,

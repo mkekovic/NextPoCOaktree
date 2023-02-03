@@ -5,7 +5,7 @@ var AWS = require('aws-sdk');
 
 
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
 
     // Set the AWS Region.
     const REGION = "us-west-2";
