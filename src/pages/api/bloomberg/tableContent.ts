@@ -37,7 +37,7 @@ export default async function handler(req: any, res: any) {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json')
         res.json({ response })
-    } catch (error) {
+    } catch (error: any) {
         console.error(error);
         res.status(error.status || 500).end(error.message);
     }
