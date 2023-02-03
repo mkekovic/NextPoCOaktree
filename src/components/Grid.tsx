@@ -10,16 +10,16 @@ export default function Grid(props: any) {
     const [isLoading, setIsLoading] = useState(true)
     const [rowData, setRowData] = useState([]);
     const [columnDefs, setColumnDefs] = useState([{}]);
-    let isAuth: any = useIsAuthenticated();
+    const isAuth: any = useIsAuthenticated();
 
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append("authToken", "abc123");
     const renderTableContent = () => {
         if (isLoading) {
             return (
                 <Spinner />
             )
-        } else if (isAuth || props.isStructured) { // for security of auth
+        } else if (isAuth || props?.isStructured) { // for security of auth
             return (
                 <div className='ag-theme-alpine h-96 w-7/12' >
                     <AgGridReact
@@ -53,7 +53,7 @@ export default function Grid(props: any) {
     }), [])
 
     useEffect(() => {
-        fetch(props.url, props.isStructured ? {} : isAuth ? {
+        fetch(props?.url, props?.isStructured ? {} : isAuth ? {
             method: 'GET',
             headers: myHeaders,
             redirect: 'follow'
